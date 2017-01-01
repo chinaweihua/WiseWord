@@ -1,0 +1,15 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ww_black"
+     >
+	 <TextView
+		android:id="@+id/main_tv"	     
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="40sp"
+        android:textColor="@color/ww_white"
+        android:gravity="center"
+        android:text="MainActivity" />
+</RelativeLayout>
