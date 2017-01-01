@@ -1,1 +1,1 @@
-WiseWord£ºĞ¦»°app
+WiseWordï¼šç¬‘è¯app
