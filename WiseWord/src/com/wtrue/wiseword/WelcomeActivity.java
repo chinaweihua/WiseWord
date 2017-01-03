@@ -36,6 +36,7 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener{
 		launcher_time.setText(RECIPROCALTIME+"");
 		jumpHandler.sendEmptyMessageDelayed(MSG_FINISH_LAUNCHERACTIVITY, 1000);
 	}
+	
 	/**
 	 * 计时and跳转
 	 */

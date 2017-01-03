@@ -22,22 +22,27 @@ import android.widget.Toast;
  */
 public class MainActivity extends BaseActivity {
 	private TextView main_tv;
+	private boolean isConn;// 是否有网络
+	private MyStringCallback callback;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		main_tv = (TextView) this.findViewById(R.id.main_tv);
-		OkHttpUtils
-				.get()
-				.url("http://apis.baidu.com/showapi_open_bus/showapi_joke/joke_text")
-				.tag(this).build().connTimeOut(20000).readTimeOut(20000)
-				.writeTimeOut(20000).execute(new MyStringCallback());
+		callback = new MyStringCallback();
+		OkHttpUtils.get().url("http://route.showapi.com/341-3")
+				.addParams("showapi_appid", "100")
+				.addParams("showapi_sign", "698d51a19d8a121ce581499d7b701668")
+				.addParams("page", "1").addParams("maxResult", "20").tag(this)
+				.build().connTimeOut(20000).readTimeOut(20000)
+				.writeTimeOut(20000).execute(callback);
 	}
 
 	@Override
 	protected void onNetworkConnected(NetType type) {
 		// TODO Auto-generated method stub
+		isConn = true;
 		if (main_tv != null) {
 			main_tv.setText("网络连接。。。");
 		}
@@ -46,17 +51,18 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void onNetworkDisConnected() {
 		// TODO Auto-generated method stub
+		isConn = false;
 		if (main_tv != null) {
 			main_tv.setText("网络断开。。。");
 		}
 	}
-	
-	public class MyStringCallback extends StringCallback{
+
+	public class MyStringCallback extends StringCallback {
 
 		@Override
 		public void onError(Call call, Exception e, int id) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
@@ -64,6 +70,13 @@ public class MainActivity extends BaseActivity {
 			// TODO Auto-generated method stub
 			main_tv.setText(response);
 		}
-		
+
 	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
+
 }
