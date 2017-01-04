@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher_web"
+        android:icon="@drawable/app_ic"
         android:label="@string/app_name"
         android:name="com.wtrue.application.WtApplication"
         android:theme="@style/AppTheme" >
