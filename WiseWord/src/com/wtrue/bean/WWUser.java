@@ -1,6 +1,7 @@
 package com.wtrue.bean;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobRelation;
 
 /**
  * 用户实体类
@@ -10,6 +11,15 @@ import cn.bmob.v3.BmobUser;
 public class WWUser extends BmobUser{
 	private static final long serialVersionUID = 1L;
 	private String headImage;//头像
+	private String nickname;
+	
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 
 	public String getHeadImage() {
 		return headImage;

@@ -1,9 +1,12 @@
 package com.wture.utlis;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
+import com.wtrue.bean.Collection;
 import com.wtrue.bean.WWUser;
 import com.wtrue.interfaces.BmobExtendListener;
 
@@ -48,8 +51,9 @@ public class BmobUtlis {
 	 * @param listener	请求回调接口
 	 * 			目前只添加了个头像的字段，如果需要其他的资料需要在实体类中添加字段，参数也需要对应添加。
 	 */
-	public static void userUpdate(String headImage,UpdateListener listener){
+	public static void userUpdate(String headImage,String nickname,UpdateListener listener){
 		WWUser user = new WWUser();
+		user.setNickname(nickname);
 		user.setHeadImage(headImage);
 		WWUser oldUser = BmobUser.getCurrentUser(WWUser.class);
 		user.update(oldUser.getObjectId(), listener);
@@ -67,5 +71,47 @@ public class BmobUtlis {
 		}else{//退出失败
 			listener.errorLogOut();
 		}
+	}
+	/**
+	 * 收藏
+	 * @param title		标题
+	 * @param content	内容
+	 * @param image		图片
+	 */
+	public static void userColllection(String title,String content,BmobFile image,SaveListener<String> listener){
+		WWUser user = BmobUser.getCurrentUser(WWUser.class);
+		Collection collection = new Collection();
+		collection.setTitle(title);
+		collection.setContent(content);
+		collection.setImage(image);
+		collection.setAuthor(user);
+		collection.save(listener);
+	}
+	/**
+	 * 收藏
+	 * @param title		标题
+	 * @param content	内容
+	 */
+	public static void userColllection(String title,String content,SaveListener<String> listener){
+		WWUser user = BmobUser.getCurrentUser(WWUser.class);
+		Collection collection = new Collection();
+		collection.setTitle(title);
+		collection.setContent(content);
+		collection.setAuthor(user);
+		collection.save(listener);
+	}
+	
+	/**
+	 * 收藏
+	 * @param title		标题
+	 * @param image		图片
+	 */
+	public static void userColllection(String title,BmobFile image,SaveListener<String> listener){
+		WWUser user = BmobUser.getCurrentUser(WWUser.class);
+		Collection collection = new Collection();
+		collection.setTitle(title);
+		collection.setImage(image);
+		collection.setAuthor(user);
+		collection.save(listener);
 	}
 }
