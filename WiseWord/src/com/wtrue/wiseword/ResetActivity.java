@@ -12,7 +12,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 
 import com.wtrue.netmonitor.NetUtils.NetType;
-import com.wture.utlis.BmobUtlis;
+import com.wtrue.utlis.BmobUtlis;
 /**
  * 修改密码
  * @author Ben

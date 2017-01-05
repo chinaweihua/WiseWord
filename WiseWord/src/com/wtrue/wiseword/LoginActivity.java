@@ -15,7 +15,7 @@ import cn.bmob.v3.listener.SaveListener;
 
 import com.wtrue.bean.WWUser;
 import com.wtrue.netmonitor.NetUtils.NetType;
-import com.wture.utlis.BmobUtlis;
+import com.wtrue.utlis.BmobUtlis;
 
 public class LoginActivity extends BaseActivity implements OnClickListener{
 	/**

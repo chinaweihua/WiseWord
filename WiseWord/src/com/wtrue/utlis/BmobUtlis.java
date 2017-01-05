@@ -1,4 +1,4 @@
-package com.wture.utlis;
+package com.wtrue.utlis;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;

@@ -10,7 +10,7 @@ import com.wtrue.netmonitor.NetUtils.NetType;
 import com.wtrue.okhttp.Callback;
 import com.wtrue.okhttp.OkHttpUtils;
 import com.wtrue.okhttp.StringCallback;
-import com.wture.utlis.BmobUtlis;
+import com.wtrue.utlis.BmobUtlis;
 
 import android.app.Activity;
 import android.content.Intent;

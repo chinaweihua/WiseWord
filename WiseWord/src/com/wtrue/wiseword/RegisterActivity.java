@@ -14,7 +14,7 @@ import cn.bmob.v3.listener.SaveListener;
 
 import com.wtrue.bean.WWUser;
 import com.wtrue.netmonitor.NetUtils.NetType;
-import com.wture.utlis.BmobUtlis;
+import com.wtrue.utlis.BmobUtlis;
 
 /**
  * 注册界面
