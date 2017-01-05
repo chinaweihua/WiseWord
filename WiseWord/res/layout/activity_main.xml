@@ -12,4 +12,13 @@
         android:textColor="@color/ww_white"
         android:gravity="center"
         android:text="MainActivity" />
+
+	 <Button
+	     android:id="@+id/register_bt"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_alignParentBottom="true"
+	     android:layout_alignParentRight="true"
+	     android:text="注册" />
+
 </RelativeLayout>

@@ -1,5 +1,8 @@
 package com.wtrue.wiseword;
 
+import cn.bmob.v3.Bmob;
+
+import com.wtrue.constants.BmobConstants;
 import com.wtrue.netmonitor.NetUtils.NetType;
 
 import android.content.Intent;
@@ -76,12 +79,12 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener{
 	}
 
 	@Override
-	protected void onNetworkConnected(NetType type) {
+	protected void onNetworkConnected(NetType type) { //当程序运行时网络连接时回调
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	protected void onNetworkDisConnected() {
+	protected void onNetworkDisConnected() {//当程序运行时网络断开时回调
 		// TODO Auto-generated method stub
 	}
 }

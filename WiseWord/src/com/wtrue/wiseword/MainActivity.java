@@ -8,9 +8,13 @@ import com.wtrue.okhttp.OkHttpUtils;
 import com.wtrue.okhttp.StringCallback;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,16 +24,18 @@ import android.widget.Toast;
  * @author Ben
  * 
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnClickListener{
 	private TextView main_tv;
 	private boolean isConn;// 是否有网络
 	private MyStringCallback callback;
+	private Button register_bt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		main_tv = (TextView) this.findViewById(R.id.main_tv);
+		register_bt = (Button) this.findViewById(R.id.register_bt);
 		callback = new MyStringCallback();
 		OkHttpUtils.get().url("http://route.showapi.com/341-3")
 				.addParams("showapi_appid", "100")
@@ -77,6 +83,21 @@ public class MainActivity extends BaseActivity {
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		OkHttpUtils.getInstance().cancelTag(this);//当activity退出的时候取消tag
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		switch (arg0.getId()) {
+		case R.id.register_bt://跳转注册界面
+			Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+			startActivity(intent);
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }
