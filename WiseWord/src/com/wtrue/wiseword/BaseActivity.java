@@ -1,6 +1,9 @@
 package com.wtrue.wiseword;
 
 
+import cn.bmob.v3.Bmob;
+
+import com.wtrue.constants.BmobConstants;
 import com.wtrue.netmonitor.NetChangeObserver;
 import com.wtrue.netmonitor.NetStateReceiver;
 import com.wtrue.netmonitor.NetUtils;
@@ -21,7 +24,7 @@ public abstract class BaseActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Bmob.initialize(BaseActivity.this, BmobConstants.BMOB_APPID);//bmob后端云初始化
         // 网络改变的一个回掉类
         mNetChangeObserver = new NetChangeObserver() {
             @Override
