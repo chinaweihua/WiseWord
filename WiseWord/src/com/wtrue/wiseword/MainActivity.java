@@ -43,6 +43,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				.addParams("page", "1").addParams("maxResult", "20").tag(this)
 				.build().connTimeOut(20000).readTimeOut(20000)
 				.writeTimeOut(20000).execute(callback);
+		register_bt.setOnClickListener(this);
 	}
 
 	@Override
@@ -83,7 +84,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		OkHttpUtils.getInstance().cancelTag(this);//当activity退出的时候取消tag
+		OkHttpUtils.getInstance().cancelTag(this);//当activity退出的时候取消请求
 	}
 
 	@Override

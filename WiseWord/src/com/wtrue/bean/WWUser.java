@@ -18,4 +18,9 @@ public class WWUser extends BmobUser{
 	public void setHeadImage(String headImage) {
 		this.headImage = headImage;
 	}
+	
+	@Override
+	public String toString() {
+		return getUsername()+"\n"+getObjectId()+"\n"+getSessionToken()+"\n"+getEmailVerified();
+	}
 }
