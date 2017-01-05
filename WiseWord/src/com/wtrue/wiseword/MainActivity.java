@@ -28,7 +28,10 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	private TextView main_tv;
 	private boolean isConn;// 是否有网络
 	private MyStringCallback callback;
-	private Button register_bt;
+	/**
+	 * 注册、登陆按钮
+	 */
+	private Button register_bt,login_bt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		setContentView(R.layout.activity_main);
 		main_tv = (TextView) this.findViewById(R.id.main_tv);
 		register_bt = (Button) this.findViewById(R.id.register_bt);
+		login_bt = (Button) this.findViewById(R.id.login_bt);
 		callback = new MyStringCallback();
 		OkHttpUtils.get().url("http://route.showapi.com/341-3")
 				.addParams("showapi_appid", "100")
@@ -44,6 +48,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				.build().connTimeOut(20000).readTimeOut(20000)
 				.writeTimeOut(20000).execute(callback);
 		register_bt.setOnClickListener(this);
+		login_bt.setOnClickListener(this);
 	}
 
 	@Override
@@ -90,12 +95,16 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
+		Intent intent;
 		switch (arg0.getId()) {
 		case R.id.register_bt://跳转注册界面
-			Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+			intent = new Intent(MainActivity.this,RegisterActivity.class);
 			startActivity(intent);
 			break;
-
+		case R.id.login_bt://跳转登陆界面
+			intent = new Intent(MainActivity.this,LoginActivity.class);
+			startActivity(intent);
+			break;
 		default:
 			break;
 		}

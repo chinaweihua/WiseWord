@@ -21,4 +21,12 @@
 	     android:layout_alignParentRight="true"
 	     android:text="注册" />
 
+	 <Button
+	     android:id="@+id/login_bt"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_alignParentBottom="true"
+	     android:layout_toLeftOf="@+id/register_bt"
+	     android:text="登陆" />
+
 </RelativeLayout>

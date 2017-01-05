@@ -26,6 +26,7 @@
         <activity android:name="com.wtrue.wiseword.MainActivity" >
         </activity>
         <activity android:name="com.wtrue.wiseword.RegisterActivity"></activity>
+        <activity android:name="com.wtrue.wiseword.LoginActivity"></activity>
     </application>
 
     <!-- 允许联网 -->
