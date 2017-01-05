@@ -83,10 +83,10 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 						Toast.makeText(RegisterActivity.this, "注册成功...:"+arg0.toString(), Toast.LENGTH_SHORT).show();
 						Log.e("注册成功", arg0.toString()+"");
 					}else{
-						Toast.makeText(RegisterActivity.this, "注册失败..."+arg1.getErrorCode()+"::"+arg1.getMessage(), Toast.LENGTH_SHORT).show();
-						Log.e("注册失败", arg1.toString()+"");
-						Log.e("注册失败", arg1.getErrorCode()+"");
-						Log.e("注册失败", arg1.getMessage()+"");
+						if(arg1.getErrorCode() == 202){//错误code如果是202的话，那么就是用户输入的账号已经注册过了。
+							Toast.makeText(RegisterActivity.this, "此账号已经注册，请重新输入账号...", Toast.LENGTH_SHORT).show();
+							return;
+						}
 					}
 				}
 			});
