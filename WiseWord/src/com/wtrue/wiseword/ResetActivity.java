@@ -12,7 +12,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 
 import com.wtrue.netmonitor.NetUtils.NetType;
-import com.wtrue.utlis.BmobUtlis;
+import com.wtrue.utils.BmobUtils;
 /**
  * 修改密码
  * @author Ben
@@ -81,7 +81,7 @@ public class ResetActivity extends BaseActivity implements OnClickListener{
 				Toast.makeText(ResetActivity.this, "两次输入的密码不一致,请确定后重新输入...", Toast.LENGTH_SHORT).show();
 				return;
 			}
-			BmobUtlis.userUpdatePassword(oPassWord, nPassWord, new UpdateListener() {
+			BmobUtils.userUpdatePassword(oPassWord, nPassWord, new UpdateListener() {
 				
 				@Override
 				public void done(BmobException arg0) {

@@ -1,4 +1,4 @@
-package com.wtrue.utlis;
+package com.wtrue.utils;
 
 
 import cn.bmob.v3.BmobQuery;
@@ -8,11 +8,12 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
+import com.bencao.utils.FileUtils;
 import com.wtrue.bean.Collection;
 import com.wtrue.bean.WWUser;
 import com.wtrue.interfaces.BmobExtendListener;
 
-public class BmobUtlis {
+public class BmobUtils {
 	/**
 	 * 注册
 	 * @param userName	用户名
@@ -24,6 +25,7 @@ public class BmobUtlis {
 		user.setUsername(userName);
 		user.setPassword(passWord);
 		user.signUp(listener);
+		
 	}
 	/**
 	 * 登陆

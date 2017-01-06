@@ -15,7 +15,7 @@ import cn.bmob.v3.listener.SaveListener;
 
 import com.wtrue.bean.WWUser;
 import com.wtrue.netmonitor.NetUtils.NetType;
-import com.wtrue.utlis.BmobUtlis;
+import com.wtrue.utils.BmobUtils;
 
 public class LoginActivity extends BaseActivity implements OnClickListener{
 	/**
@@ -72,7 +72,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 				Toast.makeText(LoginActivity.this, "请正确输入密码...", Toast.LENGTH_SHORT).show();
 				return;
 			}
-			BmobUtlis.userLogin(lUserName, lPassWord, new SaveListener<WWUser>() {
+			BmobUtils.userLogin(lUserName, lPassWord, new SaveListener<WWUser>() {
 				
 				@Override
 				public void done(WWUser arg0, BmobException arg1) {

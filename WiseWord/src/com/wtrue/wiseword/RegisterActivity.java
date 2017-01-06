@@ -14,7 +14,7 @@ import cn.bmob.v3.listener.SaveListener;
 
 import com.wtrue.bean.WWUser;
 import com.wtrue.netmonitor.NetUtils.NetType;
-import com.wtrue.utlis.BmobUtlis;
+import com.wtrue.utils.BmobUtils;
 
 /**
  * 注册界面
@@ -74,7 +74,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 				Toast.makeText(RegisterActivity.this, "请正确输入密码...", Toast.LENGTH_SHORT).show();
 				return;
 			}
-			BmobUtlis.userRegister(rUserName, rPassWord, new SaveListener<WWUser>() {
+			BmobUtils.userRegister(rUserName, rPassWord, new SaveListener<WWUser>() {
 				
 				@Override
 				public void done(WWUser arg0, BmobException arg1) {

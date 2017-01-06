@@ -15,7 +15,7 @@ import com.wtrue.netmonitor.NetUtils.NetType;
 import com.wtrue.okhttp.Callback;
 import com.wtrue.okhttp.OkHttpUtils;
 import com.wtrue.okhttp.StringCallback;
-import com.wtrue.utlis.BmobUtlis;
+import com.wtrue.utils.BmobUtils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -132,7 +132,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			startActivity(intent);
 			break;
 		case R.id.update_bt:// 更新名字
-			BmobUtlis.userUpdate(null, "哈哈", new UpdateListener() {
+			BmobUtils.userUpdate(null, "哈哈", new UpdateListener() {
 
 				@Override
 				public void done(BmobException arg0) {
@@ -149,7 +149,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			});
 			break;
 		case R.id.colletion:// 收藏测试 收藏之前需要判断是否有登陆过，如果没有登陆或者本地保存的账号密码过期需要提示用户重新登陆
-			BmobUtlis.userCollection("测试", "测试aaaa",
+			BmobUtils.userCollection("测试", "测试aaaa",
 					new SaveListener<String>() {
 
 						@Override
@@ -167,7 +167,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 					});
 			break;
 		case R.id.query:// 获取收藏列表 如果当前没有登陆的话会报错
-			BmobUtlis.getUserCollection(new FindListener<Collection>() {
+			BmobUtils.getUserCollection(new FindListener<Collection>() {
 				@Override
 				public void done(List<Collection> arg0, BmobException arg1) {
 					// TODO Auto-generated method stub
@@ -182,7 +182,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			});
 			break;
 		case R.id.logout://退出登陆
-			BmobUtlis.userLogOut(new BmobExtendListener() {
+			BmobUtils.userLogOut(new BmobExtendListener() {
 				
 				@Override
 				public void logOut() {
