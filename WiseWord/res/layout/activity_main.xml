@@ -53,4 +53,21 @@
 	     android:layout_alignParentRight="true"
 	     android:text="收藏测试" />
 
+	 <Button
+	     android:id="@+id/query"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_alignBottom="@+id/colletion"
+	     android:layout_toLeftOf="@+id/colletion"
+	     android:text="获取收藏列表" />
+
+	 <Button
+	     android:id="@+id/logout"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_alignBaseline="@+id/query"
+	     android:layout_alignBottom="@+id/query"
+	     android:layout_toLeftOf="@+id/query"
+	     android:text="退出登陆" />
+
 </RelativeLayout>
