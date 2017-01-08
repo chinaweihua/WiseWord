@@ -9,8 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 import com.wtrue.bean.WWUser;
 import com.wtrue.netmonitor.NetUtils.NetType;
@@ -25,8 +28,8 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 	/**
 	 * 账号和密码输入框
 	 */
-	private EditText username_et,password_et;
-	private Button register_bt;
+	private EditText username_et,password_et,smscode_et;
+	private Button register_bt,sms_bt,smssend_bt;
 	private String rUserName;
 	private String rPassWord;
 	@Override
@@ -39,8 +42,13 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 	private void initView(){
 		username_et = (EditText) this.findViewById(R.id.username_et);
 		password_et = (EditText) this.findViewById(R.id.password_et);
+		smscode_et = (EditText) this.findViewById(R.id.smscode_et);
 		register_bt = (Button) this.findViewById(R.id.register_bt);
+		smssend_bt = (Button) this.findViewById(R.id.smssend_bt);
+		sms_bt = (Button) this.findViewById(R.id.sms_bt);
 		register_bt.setOnClickListener(this);
+		sms_bt.setOnClickListener(this);
+		smssend_bt.setOnClickListener(this);
 	}
 	@Override
 	protected void onDestroy() {
@@ -88,6 +96,37 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 							return;
 						}
 					}
+				}
+			});
+			break;
+		case R.id.sms_bt://验证验证码
+			rUserName = username_et.getText().toString().trim();
+			BmobSMS.verifySmsCode(rUserName, smscode_et.getText().toString().trim(), new UpdateListener() {
+				
+				@Override
+				public void done(BmobException arg0) {
+					// TODO Auto-generated method stub
+					if(arg0 == null){//验证码成功
+						
+					}else{
+						Log.e("验证验证码", false+"");
+					}
+				}
+			});
+			break;
+		case R.id.smssend_bt://发送验证码
+			rUserName = username_et.getText().toString().trim();
+			BmobSMS.requestSMSCode(rUserName, "笑语", new QueryListener<Integer>() {
+				  
+				@Override
+				public void done(Integer smsId, BmobException ex) {
+					// TODO Auto-generated method stub
+					if(ex==null){//验证码发送成功
+			            Log.i("bmob", "短信id："+smsId);//用于查询本次短信发送详情
+			        }else{
+			        	Log.e("发送验证码", ex.toString()+"");
+			        }
+
 				}
 			});
 			break;
