@@ -107,6 +107,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 				public void done(BmobException arg0) {
 					// TODO Auto-generated method stub
 					if(arg0 == null){//验证码成功
+						Log.d("验证验证码", "通过");
 						
 					}else{
 						Log.e("验证验证码", false+"");

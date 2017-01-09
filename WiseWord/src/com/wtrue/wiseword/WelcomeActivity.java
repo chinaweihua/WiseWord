@@ -4,7 +4,9 @@ import cn.bmob.v3.Bmob;
 
 import com.wtrue.constants.BmobConstants;
 import com.wtrue.netmonitor.NetUtils.NetType;
+import com.wtrue.views.timelyview.TimelyView;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,22 +23,27 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener{
 	/**
 	 * 计时View
 	 */
-	private TextView launcher_time;
+	private TimelyView launcher_time;
 	private final int MSG_FINISH_LAUNCHERACTIVITY = 10001;
 	/**
 	 * 启动页面跳转时间
 	 */
-	private int RECIPROCALTIME = 5;
+	private int RECIPROCALTIME = 6;
 	private Button reciprocalBt;
+	private volatile    ObjectAnimator objectAnimator = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.launcher_layout);
-		launcher_time = (TextView) this.findViewById(R.id.launcher_time);
+		launcher_time = (TimelyView) this.findViewById(R.id.launcher_time);
 		reciprocalBt = (Button) this.findViewById(R.id.reciprocalBt);
 		reciprocalBt.setOnClickListener(this);
-		launcher_time.setText(RECIPROCALTIME+"");
+		if(objectAnimator == null){
+			objectAnimator = launcher_time.animate(RECIPROCALTIME, RECIPROCALTIME-1);
+			objectAnimator.setDuration(1000);
+			objectAnimator.start();
+		}
 		jumpHandler.sendEmptyMessageDelayed(MSG_FINISH_LAUNCHERACTIVITY, 1000);
 	}
 	
@@ -51,12 +58,14 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener{
 			switch (msg.what) {
 			case MSG_FINISH_LAUNCHERACTIVITY:
 				RECIPROCALTIME--;
-				if(RECIPROCALTIME == 0){//跳转到主页
+				if(RECIPROCALTIME == 1){//跳转到主页
 					Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
 					startActivity(intent);
 					finish();
 				}else{
-					launcher_time.setText(RECIPROCALTIME+"");
+					objectAnimator = launcher_time.animate(RECIPROCALTIME, RECIPROCALTIME-1);
+					objectAnimator.setDuration(1000);
+					objectAnimator.start();
 					jumpHandler.sendEmptyMessageDelayed(MSG_FINISH_LAUNCHERACTIVITY, 1000);
 				}
 				break;

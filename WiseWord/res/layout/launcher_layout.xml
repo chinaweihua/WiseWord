@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ww_black"
-    android:orientation="vertical" >
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.wtrue.wiseword">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,16 +13,17 @@
         android:gravity="center"
         android:text="欢迎界面" />
 
-    <TextView
+    <com.wtrue.views.timelyview.TimelyView
         android:id="@+id/launcher_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:text_color="#ffffff"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:textColor="@color/ww_white"
-        android:textSize="25sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="10sp"
         />
 
     <Button
