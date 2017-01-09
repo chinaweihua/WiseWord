@@ -4,6 +4,8 @@ package com.wtrue.views.timelyview;
 
 import java.security.InvalidParameterException;
 
+import android.util.Log;
+
 public class NumberUtils {
 
     public static float[][] getControlPointsFor(int start) {

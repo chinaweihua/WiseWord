@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.wtrue.wiseword"
+    android:id="@+id/landing_backgrond"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ww_black"
-    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.wtrue.wiseword">
+    android:orientation="vertical" >
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/first_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/wa_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null" />
+
+        <com.wtrue.widget.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/padding_normal" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/advertisement_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="40sp"
-        android:textColor="@color/ww_white"
-        android:gravity="center"
-        android:text="欢迎界面" />
+        android:scaleType="fitXY" />
 
     <com.wtrue.views.timelyview.TimelyView
         android:id="@+id/launcher_time"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:text_color="#ffffff"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="10sp"
-        />
+        app:text_color="#ffffff" />
 
     <Button
         android:id="@+id/reciprocalBt"

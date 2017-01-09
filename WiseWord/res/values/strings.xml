@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">WiseWord</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="app_name">笑语</string>
+    <string name="icon_one">文</string>
+    <string name="icon_two">图</string>
+    <string name="icon_three">藏</string>
+    <string name="icon_four">我</string>
+	<string name="title_one">文字笑话</string>
+    <string name="title_two">图片笑话</string>
+    <string name="title_three">收藏</string>
+    <string name="title_four">我</string>
+    <string name="one_hint">纯文字型笑话.</string>
+    <string name="two_hint">带图片笑话.</string>
+    <string name="three_hint">您的收藏夹.</string>
+    <string name="four_hint">您资料和app的设置</string>
 </resources>

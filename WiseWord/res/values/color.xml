@@ -5,5 +5,8 @@
     <color name="ww_white">#ffffff</color>
     <!-- 黑色 -->
     <color name="ww_black">#000000</color>
-
+	<color name="light_green">#3eb74e</color>
+    <color name="light_purple">#8c61b3</color>
+    <color name="light_orange">#ffb500</color>
+    <color name="light_cyan">#125556</color>
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <array name="landing_bg">
+        <item>@color/light_green</item>
+        <item>@color/light_purple</item>
+        <item>@color/light_orange</item>
+        <item>@color/light_cyan</item>
+    </array>
+    
+	<string-array name="icon" >
+        <item>@string/icon_one</item>
+        <item>@string/icon_two</item>
+        <item>@string/icon_three</item>
+        <item>@string/icon_four</item>
+    </string-array>
+    
+    <string-array name="titles" >
+        <item>@string/title_one</item>
+        <item>@string/title_two</item>
+        <item>@string/title_three</item>
+        <item>@string/title_four</item>
+    </string-array>
+
+    <string-array name="hints" >
+        <item>@string/one_hint</item>
+        <item>@string/two_hint</item>
+        <item>@string/three_hint</item>
+        <item>@string/four_hint</item>
+    </string-array>
+</resources>
