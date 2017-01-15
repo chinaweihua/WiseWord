@@ -11,7 +11,7 @@
         android:right="15dp"
         android:top="10dp" />
 
-    <solid android:color="#00BCD4" />
+    <solid android:color="@color/ww_theme" />
 
     <stroke
         android:width="5dp"

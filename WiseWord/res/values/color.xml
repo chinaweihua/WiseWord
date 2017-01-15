@@ -9,4 +9,5 @@
     <color name="light_purple">#8c61b3</color>
     <color name="light_orange">#ffb500</color>
     <color name="light_cyan">#125556</color>
-</resources>
+    <color name="ww_theme">#00BCD4</color>
+</resources> 

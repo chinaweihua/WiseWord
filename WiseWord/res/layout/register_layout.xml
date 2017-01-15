@@ -2,73 +2,106 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ww_black"
+    android:background="@color/ww_white"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <dym.unique.com.springinglayoutlibrary.viewgroup.SpringingRelativeLayout
+        android:id="@+id/srl_actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/ww_theme" >
+
+        <dym.unique.com.springinglayoutlibrary.view.SpringingImageView
+            android:id="@+id/simg_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="20dp"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/regist"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold" />
+    </dym.unique.com.springinglayoutlibrary.viewgroup.SpringingRelativeLayout>
+
+    <dym.unique.com.springinglayoutlibrary.viewgroup.SpringingLinearLayout
+        android:id="@+id/sll_mainContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/username_tv"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="账号："
-            android:textColor="@color/ww_white"
-            android:textSize="20sp" />
+            android:orientation="horizontal" >
 
-        <EditText
-            android:id="@+id/username_et"
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/username_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账号："
+                android:textColor="@color/ww_black"
+                android:textSize="20sp" />
+
+            <dym.unique.com.springinglayoutlibrary.view.SpringingEditText
+                android:id="@+id/username_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="请输入账号..."
+                android:phoneNumber="true"
+                android:singleLine="true"
+                android:textColor="@color/ww_black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="请输入账号..."
-            android:phoneNumber="true"
-            android:singleLine="true"
-            android:textColor="@color/ww_white"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/password_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码："
+                android:textColor="@color/ww_black"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/password_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="密码："
-            android:textColor="@color/ww_white"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/password_et"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="textPassword"
-            android:hint="请输入密码..."
-            android:singleLine="true"
-            android:textColor="@color/ww_white"
-            android:textSize="20sp" />
-    </LinearLayout>
+            <dym.unique.com.springinglayoutlibrary.view.SpringingEditText
+                android:id="@+id/password_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="请输入密码..."
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="@color/ww_black"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </dym.unique.com.springinglayoutlibrary.viewgroup.SpringingLinearLayout>
 
     <Button
         android:id="@+id/register_bt"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:text="注册"
         android:textColor="@color/ww_white"
         android:textSize="25sp" />
- <LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -82,33 +115,36 @@
             android:textColor="@color/ww_white"
             android:textSize="20sp" />
 
-        <EditText
+        <dym.unique.com.springinglayoutlibrary.view.SpringingEditText
             android:id="@+id/smscode_et"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="textPassword"
             android:hint="请输验证码..."
+            android:inputType="textPassword"
             android:singleLine="true"
             android:textColor="@color/ww_white"
             android:textSize="20sp" />
     </LinearLayout>
-     <Button
+
+    <Button
         android:id="@+id/smssend_bt"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:text="发送验证码"
         android:textColor="@color/ww_white"
         android:textSize="25sp" />
-   <Button
+
+    <Button
         android:id="@+id/sms_bt"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:text="验证验证码"
         android:textColor="@color/ww_white"
         android:textSize="25sp" />
+
 </LinearLayout>
