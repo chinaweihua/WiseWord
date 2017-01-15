@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="WiseWord" parent="android:Theme.Holo">
+
+    <item name="android:editTextBackground">@drawable/wiseword_edit_text_holo_dark</item>
+
+    <item name="android:textColorHighlight">#9933b5e5</item>
+    <item name="android:textSelectHandleLeft">@drawable/wiseword_text_select_handle_left</item>
+    <item name="android:textSelectHandleRight">@drawable/wiseword_text_select_handle_right</item>
+    <item name="android:textSelectHandle">@drawable/wiseword_text_select_handle_middle</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewWiseWord</item>
+
+    <item name="android:listChoiceIndicatorMultiple">@drawable/wiseword_btn_check_holo_dark</item>
+
+    <item name="android:listChoiceIndicatorSingle">@drawable/wiseword_btn_radio_holo_dark</item>
+
+    <item name="android:buttonStyle">@style/ButtonWiseWord</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonWiseWord</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/SpinnerWiseWord</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarWiseWord</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarWiseWord</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarWiseWord</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigWiseWord</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallWiseWord</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleWiseWord</item>
+
+    <item name="android:listChoiceBackgroundIndicator">@drawable/wiseword_list_selector_holo_dark</item>
+
+    <item name="android:activatedBackgroundIndicator">@drawable/wiseword_activated_background_holo_dark</item>
+
+    <item name="android:fastScrollThumbDrawable">@drawable/wiseword_fastscroll_thumb_holo</item>
+
+  </style>
+
+</resources>
