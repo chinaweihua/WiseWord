@@ -319,4 +319,10 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener{
 	        super.onRestoreInstanceState(inState);
 
 	    }
+		@Override
+		protected void onDestroy() {
+			// TODO Auto-generated method stub
+			super.onDestroy();
+			isIntent = true;
+		}
 }
