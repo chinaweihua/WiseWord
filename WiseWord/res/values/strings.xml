@@ -15,4 +15,5 @@
     <string name="three_hint">您的收藏夹.</string>
     <string name="four_hint">您资料和app的设置</string>
     <string name="regist">注册</string>
+    <string name="verification">验证验证码</string>
 </resources>

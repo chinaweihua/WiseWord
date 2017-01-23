@@ -10,6 +10,9 @@ import com.wtrue.netmonitor.NetUtils;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
+import android.support.annotation.IntegerRes;
 import android.support.annotation.Nullable;
 
 
@@ -59,5 +62,15 @@ public abstract class BaseActivity extends Activity {
      * 网络断开的时候调用
      */
     protected abstract void onNetworkDisConnected();
+    public int dimen(@DimenRes int resId) {
+        return (int) getResources().getDimension(resId);
+    }
 
+    public int color(@ColorRes int resId) {
+        return getResources().getColor(resId);
+    }
+
+    public int integer(@IntegerRes int resId) {
+        return getResources().getInteger(resId);
+    }
 }

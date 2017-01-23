@@ -20,6 +20,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -319,10 +320,12 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener{
 	        super.onRestoreInstanceState(inState);
 
 	    }
+	    
 		@Override
 		protected void onDestroy() {
 			// TODO Auto-generated method stub
 			super.onDestroy();
-			isIntent = true;
+			isIntent = true;//退出之后不允许再跳转到任何界面
 		}
+		
 }
