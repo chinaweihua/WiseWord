@@ -1,5 +1,6 @@
 package com.wtrue.wiseword;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -80,6 +81,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 					if(arg1 == null){//登陆成功
 						WWUser user = BmobUser.getCurrentUser(WWUser.class);//获取登录成功后的本地用户信息
 						Log.d("登陆成功", user.toString());
+						startActivity(new Intent(LoginActivity.this,MainActivity.class));
+						Toast.makeText(LoginActivity.this, "登陆成功...", Toast.LENGTH_SHORT).show();
 					}else{//登陆失败
 						Log.e("登陆失败", arg1.toString()+"");
 					}

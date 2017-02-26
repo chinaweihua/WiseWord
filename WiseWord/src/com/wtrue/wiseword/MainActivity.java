@@ -1,5 +1,6 @@
 package com.wtrue.wiseword;
 
+import java.io.Serializable;
 import java.util.List;
 
 import okhttp3.Call;
@@ -44,7 +45,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	 */
 	private Button register_bt, login_bt, reset_bt, update_bt, colletion,
 			query,logout;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		isConn = true;
 		if (main_tv != null) {
 			main_tv.setText("网络连接。。。");
-		}
+		}  
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		isConn = false;
 		if (main_tv != null) {
 			main_tv.setText("网络断开。。。");
-		}
+		}  
 	}
 
 	public class MyStringCallback extends StringCallback {
@@ -96,12 +96,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		@Override
 		public void onError(Call call, Exception e, int id) {
 			// TODO Auto-generated method stub
+			Toast.makeText(MainActivity.this, "网络请求失败...", Toast.LENGTH_SHORT).show();
 
 		}
 
 		@Override
 		public void onResponse(String response, int id) {
 			// TODO Auto-generated method stub
+			Log.e("isConn ===============", isConn+"");
 			main_tv.setText(response);
 		}
 
@@ -172,9 +174,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				public void done(List<Collection> arg0, BmobException arg1) {
 					// TODO Auto-generated method stub
 					if (arg1 == null) {
-						for (Collection gameScore : arg0) {
-							Log.d("获取的收藏列表：", gameScore.getTitle());
-						}
+							Bundle bundle = new Bundle();
+							bundle.putSerializable("CollectionData", (Serializable) arg0);
+							Intent intent = new Intent(MainActivity.this,CollectionActivity.class);
+							intent.putExtra("data", bundle);
+							startActivity(intent);
 					} else {
 						Log.e("失败", arg1.toString());
 					}
