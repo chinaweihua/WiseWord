@@ -50,11 +50,12 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	private Button register_bt, sms_bt, smssend_bt;
 	private String rUserName;
 	private String rPassWord;
+	private String rVeriFication;
 	private SpringingImageView simg_back;
 	private SpringingRelativeLayout srl_actionBar = null;
 	private SpringingLinearLayout sll_mainContainer;
 	private SpringingImageView simg_avatarMan = null;
-	private IndeterminateProgressButton btnMorph1,btnMorph2;
+	private IndeterminateProgressButton btnMorph1, btnMorph2;
 	/**
 	 * 是否发送过验证码
 	 */
@@ -67,6 +68,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	 * 是否有网络连接
 	 */
 	private boolean isNetworkConnected = true;
+
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -91,13 +93,16 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 		simg_back = (SpringingImageView) this.findViewById(R.id.simg_back);
 		srl_actionBar = (SpringingRelativeLayout) this
 				.findViewById(R.id.srl_actionBar);
-		btnMorph1 = (IndeterminateProgressButton) this.findViewById(R.id.btnMorph1);
-		btnMorph2 = (IndeterminateProgressButton) this.findViewById(R.id.btnMorph2);
+		btnMorph1 = (IndeterminateProgressButton) this
+				.findViewById(R.id.btnMorph1);
+		btnMorph2 = (IndeterminateProgressButton) this
+				.findViewById(R.id.btnMorph2);
 		btnMorph1.setOnClickListener(this);
 		btnMorph2.setOnClickListener(this);
 		register_bt.setOnClickListener(this);
 		sms_bt.setOnClickListener(this);
 		smssend_bt.setOnClickListener(this);
+		simg_back.setOnClickListener(this);
 		sll_mainContainer
 				.getSpringingHandlerController()
 				.addSpringingHandler(
@@ -117,7 +122,8 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 														.getDisplayMetrics())));
 		sll_mainContainer.getSpringingHandlerController().addSpringingHandler(
 				new SpringTouchRippleHandler(this, sll_mainContainer)
-						.setOnlyOnChildren(true, username_et, password_et));
+						.setOnlyOnChildren(true, username_et, password_et,
+								verification_et));
 		srl_actionBar.getSpringingHandlerController().addSpringingHandler(
 				new SpringTouchRippleHandler(this, srl_actionBar)
 						.setOnlyOnChildren(true, simg_back));
@@ -139,7 +145,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	@Override
 	protected void onNetworkConnected(NetType type) {
 		// TODO Auto-generated method stub
-		isNetworkConnected = true;//有网络连接
+		isNetworkConnected = true;// 有网络连接
 	}
 
 	@Override
@@ -210,20 +216,23 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 			});
 			break;
 		case R.id.smssend_bt:// 发送验证码
-			
+
 			break;
-		case R.id.btnMorph1://验证验证码
+		case R.id.btnMorph1:// 验证验证码
 			onMorphButton1Clicked(btnMorph1);
 			break;
-		case R.id.btnMorph2://发送验证码
-			if(isNetworkConnected == false){
-				Toast.makeText(RegisterActivity.this, "没有网络连接...", Toast.LENGTH_SHORT).show();
+		case R.id.btnMorph2:// 发送验证码
+			if (isNetworkConnected == false) {
+				Toast.makeText(RegisterActivity.this, "没有网络连接...",
+						Toast.LENGTH_SHORT).show();
 				return;
 			}
 			rUserName = username_et.getText().toString().trim();
-			if(!RegexUtils.isMobileExact(rUserName)||isSendVer == true){
-				new SpringingNotificationJumpHandler(this, username_et).start(1);
-				Toast.makeText(RegisterActivity.this, "请确认输入的手机号码是否正确...", Toast.LENGTH_SHORT).show();
+			if (!RegexUtils.isMobileExact(rUserName) || isSendVer == true) {
+				new SpringingNotificationJumpHandler(this, username_et)
+						.start(1);
+				Toast.makeText(RegisterActivity.this, "请确认输入的手机号码是否正确...",
+						Toast.LENGTH_SHORT).show();
 				return;
 			}
 			onMorphButton1Clicked(btnMorph2);
@@ -243,7 +252,10 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 
 						}
 					});
-			
+
+			break;
+		case R.id.simg_back:
+			finish();
 			break;
 		}
 
@@ -264,8 +276,10 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 			simulateProgress1(btnMorph);
 		}
 	}
+
 	/**
 	 * 验证验证码按钮设置
+	 * 
 	 * @param btnMorph
 	 * @param duration
 	 */
@@ -307,16 +321,15 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 				duration, progressColor1, progressColor2, progressColor3,
 				progressColor4);
 	}
-	
-	 private void morphToSuccess(final IndeterminateProgressButton btnMorph) {
-	        MorphingButton.Params circle = MorphingButton.Params.create()
-	                .duration(500)
-	                .cornerRadius(dimen(R.dimen.mb_height_56))
-	                .width(dimen(R.dimen.mb_height_56))
-	                .height(dimen(R.dimen.mb_height_56))
-	                .color(color(R.color.mb_green))
-	                .colorPressed(color(R.color.mb_green_dark))
-	                .icon(R.drawable.ic_done);
-	        btnMorph.morph(circle);
-	    }
+
+	private void morphToSuccess(final IndeterminateProgressButton btnMorph) {
+		MorphingButton.Params circle = MorphingButton.Params.create()
+				.duration(500).cornerRadius(dimen(R.dimen.mb_height_56))
+				.width(dimen(R.dimen.mb_height_56))
+				.height(dimen(R.dimen.mb_height_56))
+				.color(color(R.color.mb_green))
+				.colorPressed(color(R.color.mb_green_dark))
+				.icon(R.drawable.ic_done);
+		btnMorph.morph(circle);
+	}
 }

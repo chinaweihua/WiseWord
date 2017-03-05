@@ -114,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/wiseword_edit_text_holo_dark"
                 android:hint="请输入您收到的验证码..."
+                android:phoneNumber="true"
                 android:singleLine="true"
                 android:textColor="@color/ww_black" />
 
